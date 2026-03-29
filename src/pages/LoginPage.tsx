@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Video, Mail, Lock, ArrowRight, Chrome } from 'lucide-react';
+import { Video, Mail, Lock, ArrowRight, ShieldCheck } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { toast } from 'sonner';
 
@@ -23,20 +23,6 @@ export default function LoginPage() {
       toast.error(err.message || 'Error al iniciar sesión');
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleGoogleLogin = async () => {
-    try {
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: 'google',
-        options: {
-          redirectTo: window.location.origin + '/dashboard'
-        }
-      });
-      if (error) throw error;
-    } catch (err: any) {
-      toast.error(err.message || 'Error con Google Login');
     }
   };
 
@@ -100,17 +86,15 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <div className="relative my-8">
-          <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-white/10" /></div>
-          <div className="relative flex justify-center text-[10px] uppercase tracking-widest font-bold"><span className="bg-black px-4 text-white/20">O continúa con</span></div>
+        <div className="mt-8 p-4 bg-white/5 border border-white/10 rounded-2xl flex gap-3 items-start">
+          <ShieldCheck className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" />
+          <div className="space-y-1">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-orange-500">Seguridad garantizada por Supabase</p>
+            <p className="text-[10px] text-white/40 leading-relaxed">
+              Tus credenciales y tus archivos están protegidas mediante cifrado de grado empresarial y protocolos de autenticación segura.
+            </p>
+          </div>
         </div>
-
-        <button 
-          onClick={handleGoogleLogin}
-          className="w-full bg-white/5 border border-white/10 py-4 rounded-2xl font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-3"
-        >
-          <Chrome className="w-5 h-5" /> Google
-        </button>
 
         <p className="mt-8 text-center text-sm text-white/40">
           ¿No tienes cuenta? <Link to="/signup" className="text-white font-bold hover:text-orange-500 transition-colors">Regístrate gratis</Link>
