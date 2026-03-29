@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { 
   Video, Monitor, Camera, Mic, MicOff, Settings, 
   Play, Pause, Square, Download, CloudUpload, X,
-  ChevronDown, Info, Clock
+  ChevronDown, Info, Clock, Mail, Globe, ExternalLink
 } from 'lucide-react';
 import { useRecorder, RecordingQuality } from '../lib/hooks/useRecorder';
 import { useAuth } from '../lib/hooks/useAuth';
@@ -357,15 +357,24 @@ export default function RecorderPage() {
             <div className="space-y-3">
               <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/20">Autor y Contacto</h4>
               <ul className="text-xs space-y-2 text-white/60">
-                <li>Autor: Aitor Sánchez Gutiérrez</li>
-                <li>Contacto: blog.cottage627@passinbox.com</li>
+                <li className="flex items-center gap-2">Autor: Aitor Sánchez Gutiérrez</li>
+                <li className="flex items-center gap-2">
+                  <Mail className="w-3 h-3 text-orange-500" />
+                  <span>Contacto: blog.cottage627@passinbox.com</span>
+                </li>
               </ul>
             </div>
             <div className="space-y-3">
               <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/20">Recursos</h4>
               <ul className="text-xs space-y-2 text-white/60">
-                <li>Blog: <a href="https://aitorblog.infinityfreeapp.com" target="_blank" rel="noreferrer" className="hover:text-orange-500 transition-colors">aitorblog.infinityfreeapp.com</a></li>
-                <li>Más apps: <a href="https://aitorhub.vercel.app/" target="_blank" rel="noreferrer" className="hover:text-orange-500 transition-colors">aitorhub.vercel.app</a></li>
+                <li className="flex items-center gap-2">
+                  <Globe className="w-3 h-3 text-orange-500" />
+                  <span>Blog: <a href="https://aitorblog.infinityfreeapp.com" target="_blank" rel="noreferrer" className="hover:text-orange-500 transition-colors">aitorblog.infinityfreeapp.com</a></span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <ExternalLink className="w-3 h-3 text-orange-500" />
+                  <span>Más apps: <a href="https://aitorhub.vercel.app/" target="_blank" rel="noreferrer" className="hover:text-orange-500 transition-colors">aitorhub.vercel.app</a></span>
+                </li>
               </ul>
             </div>
           </div>

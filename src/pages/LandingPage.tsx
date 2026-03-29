@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Video, Monitor, Zap, Shield, ArrowRight, Play } from 'lucide-react';
+import { Video, Monitor, Zap, Shield, ArrowRight, Play, Mail, Globe, ExternalLink } from 'lucide-react';
 
 export default function LandingPage() {
   return (
@@ -40,8 +40,7 @@ export default function LandingPage() {
               </span>
             </h1>
             <p className="text-xl text-white/60 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
-              La herramienta de grabación más rápida y potente directamente en tu navegador. 
-              Estilo Loom, pero libre y para todos.
+              La herramienta de grabación más rápida y potente directamente en tu navegador.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link to="/recorder" className="group flex items-center gap-2 bg-orange-500 text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-orange-400 transition-all transform hover:scale-105">
@@ -163,15 +162,24 @@ export default function LandingPage() {
           <div className="space-y-4">
             <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/20">Autor y Contacto</h4>
             <ul className="text-sm space-y-3 text-white/60">
-              <li>Autor: Aitor Sánchez Gutiérrez</li>
-              <li>Contacto: <a href="mailto:blog.cottage627@passinbox.com" className="hover:text-orange-500 transition-colors">blog.cottage627@passinbox.com</a></li>
+              <li className="flex items-center gap-2">Autor: Aitor Sánchez Gutiérrez</li>
+              <li className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-orange-500" />
+                <span>Contacto: <a href="mailto:blog.cottage627@passinbox.com" className="hover:text-orange-500 transition-colors">blog.cottage627@passinbox.com</a></span>
+              </li>
             </ul>
           </div>
           <div className="space-y-4">
             <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/20">Recursos</h4>
             <ul className="text-sm space-y-3 text-white/60">
-              <li>Blog: <a href="https://aitorblog.infinityfreeapp.com" target="_blank" rel="noreferrer" className="hover:text-orange-500 transition-colors">aitorblog.infinityfreeapp.com</a></li>
-              <li>Más apps: <a href="https://aitorhub.vercel.app/" target="_blank" rel="noreferrer" className="hover:text-orange-500 transition-colors">aitorhub.vercel.app</a></li>
+              <li className="flex items-center gap-2">
+                <Globe className="w-4 h-4 text-orange-500" />
+                <span>Blog: <a href="https://aitorblog.infinityfreeapp.com" target="_blank" rel="noreferrer" className="hover:text-orange-500 transition-colors">aitorblog.infinityfreeapp.com</a></span>
+              </li>
+              <li className="flex items-center gap-2">
+                <ExternalLink className="w-4 h-4 text-orange-500" />
+                <span>Más apps: <a href="https://aitorhub.vercel.app/" target="_blank" rel="noreferrer" className="hover:text-orange-500 transition-colors">aitorhub.vercel.app</a></span>
+              </li>
             </ul>
           </div>
         </div>
