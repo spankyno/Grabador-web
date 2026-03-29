@@ -1,0 +1,9 @@
+{
+  "name": "Grabador web",
+  "description": "Grabador de pantalla online estilo Loom / Screen Studio. Captura pantalla, webcam y audio directamente desde tu navegador.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "display-capture"
+  ]
+}
