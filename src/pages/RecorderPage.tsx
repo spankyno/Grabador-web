@@ -75,6 +75,7 @@ export default function RecorderPage() {
           user_id: user.id,
           filename: filename,
           duration: duration,
+          size_bytes: recordedBlob.size,
           url: publicUrl,
           expires_at: getExpirationDate(30).toISOString()
         });

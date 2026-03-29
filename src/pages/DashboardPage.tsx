@@ -17,6 +17,7 @@ interface Recording {
   id: string;
   filename: string;
   duration: number;
+  size_bytes: number;
   url: string;
   created_at: string;
   expires_at: string;
@@ -81,6 +82,14 @@ export default function DashboardPage() {
   const handleLogout = async () => {
     await supabase.auth.signOut();
     toast.info('Sesión cerrada');
+  };
+
+  const formatFileSize = (bytes: number) => {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
   };
 
   const filteredRecordings = recordings.filter(r => 
@@ -191,7 +200,8 @@ export default function DashboardPage() {
                         <h3 className="font-bold truncate text-sm mb-1">{recording.filename}</h3>
                         <div className="flex items-center gap-3 text-[10px] text-white/40 uppercase tracking-widest font-bold">
                           <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {format(new Date(recording.created_at), 'dd MMM yyyy', { locale: es })}</span>
-                          <span className="flex items-center gap-1 text-orange-500/60"><Clock className="w-3 h-3" /> Expira en 30 días</span>
+                          <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {formatFileSize(recording.size_bytes)}</span>
+                          <span className="flex items-center gap-1 text-orange-500/60">Expira en 30 días</span>
                         </div>
                       </div>
                     </div>
